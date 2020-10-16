@@ -1,7 +1,8 @@
+
 $(document).ready(function() {
 
   /* open wallet code */
-  var explorer_addr = "https://rito.safc.cc/address/"
+  var explorer_addr = "https://insight.ritocoin.org/address/"
   var wallet_timer = false;
 
   $("#openBtn").click(function(){
@@ -92,7 +93,7 @@ $(document).ready(function() {
 
   $("#walletConfirmSend").click(function(){
 
-    $("#walletSendConfirmStatus").removeClass('hidden').addClass('alert-info').html("Transaction is submitting. Please wait");    
+    $("#walletSendConfirmStatus").removeClass('hidden').addClass('alert-info').html("Transaction is submitting. Please wait");
     $("#sendBtnLoader").removeClass("hidden");
 
     var thisbtn = $(this);
@@ -132,7 +133,7 @@ console.log("Value: "+dvalue);
         }
 
         // clone the transaction with out using coinjs.clone() function as it gives us trouble
-        var tx2 = coinjs.transaction(); 
+        var tx2 = coinjs.transaction();
         var txunspent = tx2.deserialize(tx.serialize());
 
         // then sign
@@ -140,9 +141,9 @@ console.log("Value: "+dvalue);
 
         // and finally broadcast!
         tx2.broadcast(function(data){
-          
+
           $("#sendBtnLoader").addClass("hidden");
-          
+
           if(data.result=="1"){
             $("#walletSendConfirmStatus").removeClass('hidden').removeClass('alert-danger').addClass('alert-success').html('Successfully sent - '+data.txid);
             if( (data.txid == '') || (data.txid == '0') || (data.txid == 0) )
@@ -211,7 +212,7 @@ console.log("Value: "+dvalue);
       if((!isNaN($(amount).val())) && $(amount).val()>0){
         $(amount).parent().removeClass('has-error');
       } else {
-        $(amount).parent().addClass('has-error');      
+        $(amount).parent().addClass('has-error');
       }
 
       if(coinjs.addressDecode($(address).val())){
@@ -230,7 +231,7 @@ console.log("Value: "+dvalue);
         $("#recipient_addr").html($(".addressTo").val());
         $("#spendAmount").html(total);
         $("#modalWalletConfirm").modal("show");
-        setTimeout('$("#walletConfirmSend").attr("disabled",false); $("#sendBtnLoader").addClass("hidden");', 2000);        
+        setTimeout('$("#walletConfirmSend").attr("disabled",false); $("#sendBtnLoader").addClass("hidden");', 2000);
       } else {
         $("#walletSendStatus").removeClass("hidden").html("You are trying to spend "+total+' but have a balance of '+balance);
       }
@@ -266,9 +267,9 @@ console.log("Value: "+dvalue);
       error: function() {},
       complete: function(data, status) {
                 if (!isNaN(data.responseText))
-                    $("#walletBalance").html(data.responseText+" RITO"); 
+                    $("#walletBalance").html(data.responseText+" RITO");
                 else
-                    $("#walletBalance").html("0.00 RITO"); 
+                    $("#walletBalance").html("0.00 RITO");
         $("#walletLoader").addClass("hidden");
                 console.log(data);
       }
@@ -415,7 +416,7 @@ console.log("Value: "+dvalue);
   $('#timeLockedDateTimePicker').datetimepicker({
     format: "MM/DD/YYYY HH:mm",
   });
-  
+
   $('#timeLockedRbTypeBox input').change(function(){
     if ($('#timeLockedRbTypeDate').is(':checked')){
       $('#timeLockedDateTimePicker').show();
@@ -604,7 +605,7 @@ console.log("Value: "+dvalue);
 
 
     if(!$("#recipients .row, #inputs .row").hasClass('has-error')){
-      
+
       $("#transactionCreate textarea").val(tx.serialize());
       $("#transactionCreate .txSize").html(tx.size());
 
@@ -655,7 +656,7 @@ console.log("Value: "+dvalue);
           $("#fees .txo_p2sh").trigger('input');
         } else { // p2pkh
           $("#fees .txo_p2pkh").val(($("#fees .txo_p2pkh").val()*1)+1);
-          $("#fees .txo_p2pkh").trigger('input');          
+          $("#fees .txo_p2pkh").trigger('input');
         }
       });
 
@@ -890,7 +891,7 @@ console.log("Value: "+dvalue);
     }
   }
 
-  /* default function to retreive unspent outputs*/  
+  /* default function to retreive unspent outputs*/
   function listUnspentDefault(redeem){
     var tx = coinjs.transaction();
     tx.listUnspent(redeem.addr, function(data){
@@ -1425,7 +1426,7 @@ console.log(resp.responseText);
   $("#coinjs_multisig").val('0x'+(coinjs.multisig).toString(16));
 
   $("#coinjs_hdpub").val('0x'+(coinjs.hdkey.pub).toString(16));
-  $("#coinjs_hdprv").val('0x'+(coinjs.hdkey.prv).toString(16));  
+  $("#coinjs_hdprv").val('0x'+(coinjs.hdkey.prv).toString(16));
 
   $("#coinjs_coin").change(function(){
 
@@ -1434,7 +1435,7 @@ console.log(resp.responseText);
     // deal with broadcasting settings
     if(o[5]=="false"){
       $("#coinjs_broadcast, #rawTransaction, #rawSubmitBtn, #openBtn").attr('disabled',true);
-      $("#coinjs_broadcast").val("coinb.in");      
+      $("#coinjs_broadcast").val("coinb.in");
     } else {
       $("#coinjs_broadcast").val(o[5]);
       $("#coinjs_broadcast, #rawTransaction, #rawSubmitBtn, #openBtn").attr('disabled',false);
@@ -1442,7 +1443,7 @@ console.log(resp.responseText);
 
     // deal with unspent output settings
     if(o[6]=="false"){
-      $("#coinjs_utxo, #redeemFrom, #redeemFromBtn, #openBtn, .qrcodeScanner").attr('disabled',true);      
+      $("#coinjs_utxo, #redeemFrom, #redeemFromBtn, #openBtn, .qrcodeScanner").attr('disabled',true);
       $("#coinjs_utxo").val("coinb.in");
     } else {
       $("#coinjs_utxo").val(o[6]);
@@ -1596,7 +1597,7 @@ console.log(resp.responseText);
         $("#fees .txoutputs .p2sh .outputno").html(($("#fees .txoutputs .p2sh .outputno").html()*1)+1);
         $("#fees .txoutputs .p2sh .bytes").html(($("#fees .txoutputs .p2sh .bytes").html()*1)+32);
         $("#fees .txo_p2sh").val(($("#fees .txo_p2sh").val()*1)+1);
-      } 
+      }
     }
 
     //feeStats();
@@ -1614,7 +1615,7 @@ console.log(resp.responseText);
       inputsTotal += ($(o).html()*1);
       inputsBytes += ($(".bytes",$(o).parent()).html()*1);
     });
-    
+
     $("#fees .txinputs .txsize").html(inputsBytes.toFixed(0));
     $("#fees .txinputs .txtotal").html(inputsTotal.toFixed(0));
 
@@ -1624,7 +1625,7 @@ console.log(resp.responseText);
       outputsTotal += ($(o).html()*1);
       outputsBytes += ($(".bytes",$(o).parent()).html()*1);
     });
-    
+
     $("#fees .txoutputs .txsize").html(outputsBytes.toFixed(0));
     $("#fees .txoutputs .txtotal").html(outputsTotal.toFixed(0));
 

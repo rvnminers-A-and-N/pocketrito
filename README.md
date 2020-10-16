@@ -1,4 +1,4 @@
-# pocketrito
+# Ritocoin Web Wallet
 
 This is the source code from the Ritocoin Web Wallet service. Licensed under MIT license, forked from https://github.com/OutCast3k/coinbin/
 
