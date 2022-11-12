@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
   /* open wallet code */
-  var explorer_addr = "https://insight.ritocoin.org/address/"
+  var explorer_addr = "https://explorer.mewccrypto.com/address/"
   var wallet_timer = false;
 
   $("#openBtn").click(function(){
