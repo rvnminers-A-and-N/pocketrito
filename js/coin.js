@@ -4,10 +4,10 @@
   var coinjs = window.coinjs = function () { };
 
   /* public vars -  */
-  coinjs.pub = 0x19;
-  coinjs.priv = 0x8b;
-  coinjs.multisig = 0x69;
-  coinjs.hdkey = {'prv':0x05347eac, 'pub':0x0534e7ca};
+  coinjs.pub = 0x32;
+  coinjs.priv = 0x70;
+  coinjs.multisig = 0x7a;
+  coinjs.hdkey = {'prv':0x0488ade4, 'pub':0x0488b21e};
   coinjs.compressed = false;
 
   /* start of address functions */
@@ -838,7 +838,7 @@
 
     /* list unspent transactions */
     r.listUnspent = function(address, callback) {
-      coinjs.ajax("/utxo.php?addy="+address, callback, "GET");
+      coinjs.ajax("https://explorer.mewccrypto.com/ext/getlasttxsajax/"+address, callback, "GET");
     }
 
     /* add unspent to transaction */

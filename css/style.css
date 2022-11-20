@@ -11,44 +11,44 @@ body {
 }
 
 .navbar-default {
-        background-color: #384182;
+        background-color: #D6C57D;
         border-color: #000;
 }
 .navbar-default .navbar-brand {
-        color: #f79433;
+        color: #FFFFFF;
 }
 
 /* logo and site name */
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-        color: #f05239;
+        color: #000000;
 }
 .navbar-default .navbar-text {
-        color: #f79433;
+        color: #FFFFFF;
 }
 .navbar-default .navbar-nav > li > a {
-        color: #f79433;
+        color: #FFFFFF;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-        color: #f05239;
+        color: #000000;
 	font-weight: bold;
 	text-decoration: underline;
 }
 .navbar-default .navbar-toggle {
-        border-color: #b9392b;
+        border-color: #000000;
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-  background-color: #606482;
-  color: #f05239;
+  background-color: #ebdea7;
+  color: #000000;
   font-size: 1.2em;
 }
 
 .navbar-default .navbar-nav > .active > a {
-  background-color: #606482;
-  color: #f79433;
+  background-color: #ebdea7;
+  color: #000000;
   font-size: 1.2em;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-        background-color: #b9392b;
+        background-color: #000000;
 }
 .navbar-default .navbar-toggle .icon-bar {
         background-color: #ffffff;

@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
   /* open wallet code */
-  var explorer_addr = "https://insight.ritocoin.org/address/"
+  var explorer_addr = "https://explorer.mewccrypto.com/address/"
   var wallet_timer = false;
 
   $("#openBtn").click(function(){
@@ -37,7 +37,7 @@ $(document).ready(function() {
 
           $("#walletQrCode").html("");
           var qrcode = new QRCode("walletQrCode");
-          qrcode.makeCode("rito:"+address);
+          qrcode.makeCode("meowcoin:"+address);
 
           $("#walletKeys .privkey").val(wif);
           $("#walletKeys .pubkey").val(pubkey);
@@ -74,7 +74,7 @@ $(document).ready(function() {
 
     $("#walletQrCode").html("");
     var qrcode = new QRCode("walletQrCode");
-    qrcode.makeCode("rito:");
+    qrcode.makeCode("meowcoin:");
 
     $("#walletKeys .privkey").val("");
     $("#walletKeys .pubkey").val("");
@@ -167,7 +167,7 @@ console.log("Value: "+dvalue);
 
         }, signed);
       } else {
-        $("#walletSendConfirmStatus").removeClass("hidden").addClass('alert-danger').html("You have a confirmed balance of "+dvalue+" RITO unable to send "+total+" RITO").fadeOut().fadeIn();
+        $("#walletSendConfirmStatus").removeClass("hidden").addClass('alert-danger').html("You have a confirmed balance of "+dvalue+" MEWC unable to send "+total+" MEWC").fadeOut().fadeIn();
         thisbtn.attr('disabled',false);
       }
 
@@ -262,14 +262,14 @@ console.log("Value: "+dvalue);
         var address = $("#walletAddress").html();
     $.ajax ({
       type: "GET",
-      url: "/get.php?addy="+address+"",
+      url: "https://explorer.mewccrypto.com/ext/getbalance/"+address+"",
       dataType: "json",
       error: function() {},
       complete: function(data, status) {
                 if (!isNaN(data.responseText))
-                    $("#walletBalance").html(data.responseText+" RITO");
+                    $("#walletBalance").html(data.responseText+" MEWC");
                 else
-                    $("#walletBalance").html("0.00 RITO");
+                    $("#walletBalance").html("0.00 MEWC");
         $("#walletLoader").addClass("hidden");
                 console.log(data);
       }
@@ -783,7 +783,7 @@ console.log("Value: "+dvalue);
     var host = $(this).attr('rel');
 
 
-    listUnspentCryptoidinfo_RITO(redeem);
+    listUnspentCryptoidinfo_MEWC(redeem);
 
     if($("#redeemFromStatus").hasClass("hidden")) {
       // An ethical dilemma: Should we automatically set nLockTime?
@@ -917,11 +917,11 @@ console.log("Value: "+dvalue);
 
 
   /* retrieve unspent data from chain.so for U */
-  function listUnspentCryptoidinfo_RITO(redeem) {
+  function listUnspentCryptoidinfo_MEWC(redeem) {
 
     $.ajax ({
       type: "GET",
-      url: "/utxo.php?addy="+redeem.addr+"",
+      url: "https://explorer.mewccrypto.com/ext/getlasttxsajax/"+redeem.addr+"",
       dataType: "json",
       error: function() {
         $("#redeemFromStatus").removeClass('hidden').html('<span class="glyphicon glyphicon-exclamation-sign"></span> Unable to retrieve unspent outputs!');
@@ -1374,7 +1374,7 @@ console.log(resp.responseText);
       }
     } else {
       var qrcode = new QRCode("qrcode");
-      qrstr = "rito:"+$('.address',thisbtn).val();
+      qrstr = "meowcoin:"+$('.address',thisbtn).val();
     }
 
     if(qrstr){
