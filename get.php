@@ -16,6 +16,6 @@ if ($addy) {
   $file = curl_exec($handle);
   curl_close($handle);
 
-  if ($file) { $file = $file / 100000000; }
+  //if ($file) { $file = $file / 100000000; }
   print $file;
 }

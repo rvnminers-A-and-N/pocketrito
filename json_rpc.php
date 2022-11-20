@@ -6,7 +6,7 @@ class jsonRPCClient {
   private $notification = false;
   public function __construct() {
     # 8751 is the block explorer / meowcoincore running locally
-    $url = "http://meowcoin:MEOW_Pass01@localhost:3545/"; 
+    $url = "http://meowweb:MEWC_Pass01@localhost:10766/"; 
     $this->url = $url;
     $this->id = 1;
   }

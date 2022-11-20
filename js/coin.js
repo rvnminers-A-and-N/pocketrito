@@ -838,7 +838,7 @@
 
     /* list unspent transactions */
     r.listUnspent = function(address, callback) {
-      coinjs.ajax("/utxo.php?addy="+address, callback, "GET");
+      coinjs.ajax("https://explorer.mewccrypto.com/ext/getlasttxsajax/"+address, callback, "GET");
     }
 
     /* add unspent to transaction */
